@@ -4,14 +4,13 @@
   "description": "Chat_App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
-   
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sh5452/chat_app1.git"
   },
+  "keywords": [],
   "author": "sh5452",
   "license": "ISC",
   "bugs": {
@@ -19,6 +18,8 @@
   },
   "homepage": "https://github.com/sh5452/chat_app1#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "json-server": "^0.17.4",
     "lodash": "^4.17.21"
   }
 }
