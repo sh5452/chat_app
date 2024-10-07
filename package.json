@@ -1,0 +1,19 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Chat_App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh5452/chat_app1.git"
+  },
+  "author": "sh5452",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sh5452/chat_app1/issues"
+  },
+  "homepage": "https://github.com/sh5452/chat_app1#readme"
+}
