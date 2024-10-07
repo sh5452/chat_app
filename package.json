@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sh5452/chat_app1/issues"
   },
-  "homepage": "https://github.com/sh5452/chat_app1#readme"
+  "homepage": "https://github.com/sh5452/chat_app1#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
