@@ -7,6 +7,7 @@
     <title>patch</title>
     <input id="input_name" type="text" placeholder="enter your name">
     <input id="input_message" type="text" placeholder="enter your message">
+    <button onclick="send()">send</button>
     <table border="1">
         <thead>
             <tr>
@@ -30,14 +31,14 @@
                 body: JSON.stringify({
                     user: user,
                     text: new_text,
-                    time: new Date()
+                    time: new Date().toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })
 
                 }),
                 headers: { 'Content-Type': 'application/json, charset=UTF-8' }
             })
             document.getElementById('input_message').addEventListener('keyup',(event)=>{
                 if(event==="Enter"){
-                    
+                    send()
                 }
             })
             
