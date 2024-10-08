@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>patch</title>
+    <input id="input_name" type="text" placeholder="enter your name">
+    <input id="input_message" type="text" placeholder="enter your message">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>text</th>
+                <th>time</th>
+            </tr>
+        </thead>
+        <tbody id="data_table">
+
+        </tbody>
+
+    </table>
 </head>
+
 <body>
-    
+    <script>
+        async function update_data(user) {
+            const res = await fetch(`https://chat-app1-kxa0.onrender.com/${user}`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    user: user,
+                    text: new_text,
+                    time: new Date()
+
+                }),
+                headers: { 'Content-Type': 'application/json, charset=UTF-8' }
+            })
+            document.getElementById('input_message').addEventListener('keyup',(event)=>{
+                if(event==="Enter"){
+                    
+                }
+            })
+            
+        }
+    </script>
 </body>
+
 </html>
