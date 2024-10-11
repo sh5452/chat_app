@@ -110,26 +110,31 @@
         }
 
         async function loadMessages() {
-            try {
-                const response = await fetch('https://chat-app1-kxa0.onrender.com/');
-                if (response.ok) {
-                    const messages = await response.json();
-                    const chatMessages = document.getElementById("chat-messages");
-                    chatMessages.innerHTML = '';
-                    messages.forEach(msg => {
-                        addMessageToChat(msg.user, msg.text, msg.time, msg.user === userName);
-                    });
-                } else {
-                    throw new Error('שגיאה בטעינת ההודעות');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                Swal.fire('שגיאה', 'אירעה שגיאה בטעינת ההודעות', 'error');
-            }
-        }
-
-        // טען הודעות בעת טעינת הדף
-        loadMessages();
+  try {
+    const response = await fetch('https://chat-app1-kxa0.onrender.com/', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+    
+    console.log('Response status:', response.status);
+    console.log('Response headers:', Object.fromEntries(response.headers));
+    
+    const text = await response.text();
+    console.log('Response text:', text);
+    
+    if (response.ok) {
+      const messages = JSON.parse(text);
+      // המשך הטיפול בהודעות
+    } else {
+      throw new Error(`שגיאה בטעינת ההודעות: ${response.status}`);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    Swal.fire('שגיאה', `אירעה שגיאה בטעינת ההודעות: ${error.message}`, 'error');
+  }
+}
     </script>
 </body>
 </html>

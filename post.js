@@ -1,30 +1,29 @@
-async function sendMessage(){
-    const message=document.getElementById('message-input').value.trim()
-    if(message&&userName){
+
+
+async function sendMessage() {
+    const message = document.getElementById('message-input').value.trim();
+    if (message && userName) {
         try {
-            const res= await fetch('https://chat-app1-kxa0.onrender.com/', {
-                method:"POST",
-                body:JSON.stringify({
-                    name:userName,
-                    message:message,
-                    time:new Date().toLocaleTimeString('he-LI', {hour:'2-digit',minute:'2-digit'})
+            const res = await fetch('https://chat-app1-kxa0.onrender.com/', {
+                method: "POST",
+                body: JSON.stringify({
+                    name: userName,
+                    message: message,
+                    time: new Date().toLocaleTimeString('he-IL', {hour: '2-digit', minute: '2-digit'})
                 }),
-                headers: { 'Content-Type': 'application/json, charset=UTF-8' }
-                
-            })
-            if(res.ok){
-               addMessageToChat(userName,message,new Date().toLocaleTimeString('he-LI',{ hour:'2-digit', minute:'2-digit'}))
-               document.getElementById('input-message').innerHTML=''
-            }else{
-                new Error('error sending message')
+                headers: { 'Content-Type': 'application/json; charset=UTF-8' }
+            });
+            if (res.ok) {
+                addMessageToChat(userName, message, new Date().toLocaleTimeString('he-IL', {hour: '2-digit', minute: '2-digit'}));
+                document.getElementById('message-input').value = '';
+            } else {
+                throw new Error('error sending message');
             }
-            
         } catch (error) {
-            console.log('error');
-            
+            console.error('Error:', error);
+            Swal.fire('שגיאה', 'אירעה שגיאה בשליחת ההודעה', 'error');
         }
-    }else if (!userName) {
-        swal.fire('please set you`r name','error','שגיאה')
+    } else if (!userName) {
+        Swal.fire('שגיאה', 'אנא הגדר את שמך', 'error');
     }
- 
 }
