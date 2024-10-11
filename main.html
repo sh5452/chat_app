@@ -135,6 +135,10 @@
     Swal.fire('שגיאה', `אירעה שגיאה בטעינת ההודעות: ${error.message}`, 'error');
   }
 }
+
+        // סימולציה של הודעות מאחרים (לצורך הדגמה)
+        setTimeout(() => addMessageToChat("משה", "היי, מה שלומך?", false), 1000);
+        setTimeout(() => addMessageToChat("שרה", "שלום לכולם!", false), 2000);
     </script>
 </body>
 </html>
