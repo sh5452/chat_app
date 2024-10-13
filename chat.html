@@ -116,6 +116,16 @@
             const backgroundColor = getUserColor(sender);
             messageDiv.style.backgroundColor = backgroundColor;
 
+            let html_button=''
+            if(isMyMessage){
+                html_button.innerHTML=`
+                <button class='edit-btn' onclick="editMassage(${messageId}, ${sender})"> ערוך  </button>
+                <button class='delete-btn' onclick="deleteMassage(${messageId})"></button>
+                ${html_button}
+                
+                `
+            }
+
             messageDiv.innerHTML = `
                 <div class="message-info">
                     <span>${sender}</span>
