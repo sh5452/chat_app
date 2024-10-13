@@ -1,35 +1,22 @@
-async function deleteMessage(messageDiv, sender) {
-    if (sender !== userName) {
-        Swal.fire('שגיאה', 'אתה יכול למחוק רק את ההודעות שלך', 'error');
-        return;
-    }
 
-    const result = await Swal.fire({
-        title: 'האם אתה בטוח?',
-        text: "לא תוכל לשחזר הודעה זו!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'כן, מחק!',
-        cancelButtonText: 'ביטול'
-    });
+async function deleteMessage(messageId) {
+    try {
+        const res = await fetch(`https://chat-app1-kxa0.onrender.com/chat/${messageId}`, {
+            method: 'DELETE'
+        });
 
-    if (result.isConfirmed) {
-        try {
-            const response = await fetch(`https://chat-app1-kxa0.onrender.com/${userName}`, {
-                method: 'DELETE',
-            });
-
-            if (response.ok) {
+        if (res.ok) {
+            // מחיקת ההודעה מה-DOM
+            const messageDiv = document.getElementById(`message-${messageId}`);
+            if (messageDiv) {
                 messageDiv.remove();
-                Swal.fire('נמחק!', 'ההודעה שלך נמחקה.', 'success');
-            } else {
-                throw new Error('שגיאה במחיקת ההודעה');
             }
-        } catch (error) {
-            console.error('Error:', error);
-            Swal.fire('שגיאה', 'אירעה שגיאה במחיקת ההודעה', 'error');
+            Swal.fire('ההודעה נמחקה', 'ההודעה נמחקה בהצלחה', 'success');
+        } else {
+            throw new Error('שגיאה במחיקת ההודעה');
         }
+    } catch (error) {
+        console.error('Error:', error);
+        Swal.fire('שגיאה', 'אירעה שגיאה במחיקת ההודעה', 'error');
     }
 }

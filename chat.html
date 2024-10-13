@@ -7,8 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="chat.css">
-   
-    
 </head>
 <body>
     <div class="container chat-container">
@@ -74,42 +72,65 @@
 
         document.getElementById("send-button").addEventListener("click", sendMessage);
 
+        // פונקציה לשליחת הודעה לשרת
         function sendMessage() {
             const message = document.getElementById("message-input").value.trim();
             if (message && userName) {
-                addMessageToChat(userName, message, true);
-                document.getElementById("message-input").value = '';
+                // שליחה לשרת
+                fetch('https://chat-app1-kxa0.onrender.com/chats', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        user: userName,
+                        text: message,
+                        time: new Date().toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // אם ההודעה נשלחה בהצלחה, הוספת ההודעה ל-DOM
+                    addMessageToChat(userName, message, true, data.id);
+                    document.getElementById("message-input").value = ''; // ניקוי שדה הקלט
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    Swal.fire('שגיאה', 'אירעה שגיאה בשליחת ההודעה', 'error');
+                });
             } else if (!userName) {
                 Swal.fire('שגיאה', 'אנא הגדר את שמך לפני שליחת הודעה', 'error');
             }
         }
 
-        function addMessageToChat(sender, message, isMyMessage) {
+        // פונקציה להוספת הודעה ל-DOM
+        function addMessageToChat(sender, message, isMyMessage, messageId) {
             const chatMessages = document.getElementById("chat-messages");
             const messageDiv = document.createElement("div");
             messageDiv.className = `message ${isMyMessage ? 'my-message' : 'other-message'}`;
-            
+            messageDiv.id = `message-${messageId}`; // הוספת ID ייחודי להודעה
+
             const now = new Date();
             const time = now.toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' });
-            
+
             const backgroundColor = getUserColor(sender);
             messageDiv.style.backgroundColor = backgroundColor;
-            
+
             messageDiv.innerHTML = `
                 <div class="message-info">
-                    <span style="color: blanchedalmond;" >${sender}</span>
-                    <span style="color: blanchedalmond;" >${time}</span>
+                    <span>${sender}</span>
+                    <span>${time}</span>
                 </div>
-                <div style="color: blanchedalmond;"  class="message-content" >${message}</div>
+                <div class="message-content">${message}</div>
             `;
-            
+
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         // סימולציה של הודעות מאחרים (לצורך הדגמה)
-        setTimeout(() => addMessageToChat("משה", "היי, מה שלומך?", false), 1000);
-        setTimeout(() => addMessageToChat("שרה", "שלום לכולם!", false), 2000);
+        setTimeout(() => addMessageToChat("משה", "היי, מה שלומך?", false, 1), 1000);
+        setTimeout(() => addMessageToChat("שרה", "שלום לכולם!", false, 2), 2000);
     </script>
 </body>
 </html>

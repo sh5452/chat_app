@@ -4,7 +4,7 @@ async function sendMessage() {
     const message = document.getElementById('message-input').value.trim();
     if (message && userName) {
         try {
-            const res = await fetch('https://chat-app1-kxa0.onrender.com/', {
+            const res = await fetch('https://chat-app1-kxa0.onrender.com/chat', {
                 method: "POST",
                 body: JSON.stringify({
                     name: userName,
