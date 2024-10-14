@@ -1,15 +1,24 @@
-const jsonServer = require("json-server"); // importing json-server library
+const jsonServer = require("json-server");
+const express = require('express');
+const cors = require('cors');
+
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
-const express = require('express');
-const cors = require('cors');
+
 const app = express();
+const port = process.env.PORT || 3001;
 
-const port = process.env.PORT || 3001; // you can use any port number here; i chose to use 3001
+// הגדרת CORS
+app.use(cors());
 
+// הפעלת middlewares
 server.use(middlewares);
-server.use(router);
-app.use(cors())
 
-server.listen(port);
+// חיבור ה-router
+server.use(router);
+
+// התחלת השרת
+server.listen(port, () => {
+  console.log(`JSON Server is running on port ${port}`);
+});

@@ -1,144 +1,19 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אפליקציית צ'אט מורחבת</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
- <link rel="stylesheet" href="chat.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="container chat-container">
-        <h1>Chat App</h1>
-        <button id="nameButton" class="btn btn-primary mb-3">הגדר את שמך</button>
-        <div id="chat-messages"></div>
-        <div class="input-group mt-3">
-            <input type="text" id="message-input" class="form-control" placeholder="הקלד את ההודעה שלך ולחץ Enter">
-            <button id="send-button" class="btn btn-success">שלח</button>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="post.js"></script>
-    <script src="patch.js"></script>
-    <script src="delete.js"></script>
     <script>
-        let userName;
-        const userColors = {};
-        let messageIdCounter = 0;
-
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        function getUserColor(name) {
-            if (!userColors[name]) {
-                userColors[name] = getRandomColor();
-            }
-            return userColors[name];
-        }
-
-        document.getElementById("nameButton").addEventListener("click", () => {
-            Swal.fire({
-                title: 'הכנס את שמך:',
-                input: 'text',
-                inputAttributes: {
-                    autocapitalize: 'off'
-                },
-                showCancelButton: true,
-                confirmButtonText: 'הגדר שם',
-                cancelButtonText: 'ביטול',
-                preConfirm: (name) => {
-                    if (name) {
-                        userName = name;
-                    } else {
-                        Swal.showValidationMessage('אנא הכנס את שמך');
-                    }
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(`שלום, ${userName}! אתה יכול להתחיל לשוחח עכשיו.`);
-                    loadMessages();
-                }
-            });
-        });
-
-        document.getElementById("message-input").addEventListener("keyup", (event) => {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        });
-
-        document.getElementById("send-button").addEventListener("click", sendMessage);
-
-        function addMessageToChat(sender, message, time, isMyMessage) {
-            const chatMessages = document.getElementById("chat-messages");
-            const messageDiv = document.createElement("div");
-            messageDiv.className = `message ${isMyMessage ? 'my-message' : 'other-message'}`;
-            messageDiv.id = `message-${messageIdCounter++}`;
-            
-            const backgroundColor = getUserColor(sender);
-            messageDiv.style.backgroundColor = backgroundColor;
-            
-            messageDiv.innerHTML = `
-                <div class="message-info">
-                    <span style="color: blanchedalmond;">${sender}</span>
-                    <span style="color: blanchedalmond;">${time}</span>
-                </div>
-                <div style="color: blanchedalmond;" class="message-content">${message}</div>
-                <div class="message-actions">
-                    <button class="btn btn-sm btn-primary edit-btn">ערוך</button>
-                    <button class="btn btn-sm btn-danger delete-btn">מחק</button>
-                </div>
-            `;
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            const editBtn = messageDiv.querySelector('.edit-btn');
-            const deleteBtn = messageDiv.querySelector('.delete-btn');
-
-            editBtn.addEventListener('click', () => editMessage(messageDiv, sender));
-            deleteBtn.addEventListener('click', () => deleteMessage(messageDiv, sender));
-        }
-
-        async function loadMessages() {
-  try {
-    const response = await fetch('https://chat-app1-kxa0.onrender.com/chat', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-    });
-    
-    console.log('Response status:', response.status);
-    console.log('Response headers:', Object.fromEntries(response.headers));
-    
-    const text = await response.text();
-    console.log('Response text:', text);
-    
-    if (response.ok) {
-      const messages = JSON.parse(text);
-      // המשך הטיפול בהודעות
-    } else {
-      throw new Error(`שגיאה בטעינת ההודעות: ${response.status}`);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    Swal.fire('שגיאה', `אירעה שגיאה בטעינת ההודעות: ${error.message}`, 'error');
-  }
-}
-
-        // סימולציה של הודעות מאחרים (לצורך הדגמה)
-        setTimeout(() => addMessageToChat("משה", "היי, מה שלומך?", false), 1000);
-        setTimeout(() => addMessageToChat("שרה", "שלום לכולם!", false), 2000);
-    </script>
+    fetch('https://chat-app1-kxa0.onrender.com/chats', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+      </script>
 </body>
 </html>
