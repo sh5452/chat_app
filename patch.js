@@ -5,7 +5,7 @@ async function editMessage(messageDiv, sender, messageId) {
     }
 
     const messageContent = messageDiv.querySelector('.message-content');
-    const currentMessage = messageContent.textContent;
+    const currentMessage = messageContent ? messageContent.textContent : '';
 
     const result = await Swal.fire({
         title: 'ערוך את ההודעה שלך',
@@ -16,7 +16,7 @@ async function editMessage(messageDiv, sender, messageId) {
         cancelButtonText: 'בטל'
     });
 
-    if (result.isConfirmed) {
+    if (result.isConfirmed && messageId) {  // בדיקה שה-ID תקין
         const newText = result.value;
         try {
             const res = await fetch(`https://chat-app1-kxa0.onrender.com/chats/${messageId}`, {

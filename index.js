@@ -10,7 +10,11 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // הגדרת CORS
-app.use(cors());
+app.use(cors({
+  origin: '*', // מאפשר גישה מכל מקור
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // התרת שיטות HTTP מסוימות
+  allowedHeaders: ['Content-Type', 'Authorization'] // התרת כותרות מסוימות
+}));
 
 // הפעלת middlewares
 server.use(middlewares);
