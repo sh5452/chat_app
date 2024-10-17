@@ -8,6 +8,7 @@
     border: 1px solid #ddd;
     padding: 10px;
     margin-bottom: 10px;
+    background-color: rgba(214, 236, 228, 0.781);
 }
 .message {
     margin-bottom: 10px;
@@ -43,4 +44,13 @@
 }
 .message:hover .message-actions {
     display: block;
+}
+
+header{
+    height: 90px;
+    width:  670px;
+    background-color: #064e37;
+    background: linear-gradient(#111f17, #064e37, #07996b)
+
+
 }
