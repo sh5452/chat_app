@@ -10,6 +10,16 @@
     border-radius: 10px; /* פינות מעוגלות */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* צל כדי להוסיף אפקט */
 }
+#nameButton{
+    position: absolute; /* מאפשר מיקום יחסי לקונטיינר */
+    top: 17%; /* מרכז את הכפתור אנכית ביחס לחלון ההודעות */
+    transform: translateY(-50%); /* מביא אותו למרכז אנכי */
+    right: 14px; /* מרחק מימין לחלון */
+    z-index: 10; /* מבטיח שהוא יישאר מעל כל האלמנטים האחרים */
+}
+#send-button{
+    margin: 5px;
+}
 #chat-messages {
     height: 400px;
     overflow-y: auto;
