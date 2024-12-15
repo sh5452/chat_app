@@ -1,6 +1,14 @@
 .chat-container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 800px; /* מגביל את רוחב הקונטיינר */
+    margin: 0 auto; /* מרכז אופקית */
+    position: absolute; /* מאפשר מיקום יחסי למסך */
+    top: 50%; /* מתחיל ממרכז המסך אנכית */
+    left: 50%; /* מתחיל ממרכז המסך אופקית */
+    transform: translate(-50%, -50%); /* מביא את הקונטיינר לאמצע בפועל */
+    background-color: rgba(0, 0, 0, 0.5); /* רקע חצי שקוף */
+    padding: 20px; /* ריווח פנימי */
+    border-radius: 10px; /* פינות מעוגלות */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* צל כדי להוסיף אפקט */
 }
 #chat-messages {
     height: 400px;
@@ -9,6 +17,7 @@
     padding: 10px;
     margin-bottom: 10px;
     background-color: rgba(214, 236, 228, 0.781);
+    
 }
 .message {
     margin-bottom: 10px;
@@ -16,6 +25,7 @@
     border-radius: 5px;
     max-width: 50%;
     word-wrap: break-word;
+    color: #ffffff;
 }
 .my-message {
     margin-left: auto;
@@ -26,7 +36,7 @@
 .message-info {
     font-weight: bold;
     margin-bottom: 5px;
-    color: #333; /* צבע הכותרת (שם המשתמש) */
+    color: #e8dfdf; /* צבע הכותרת (שם המשתמש) */
 }
 
 .message-content {
@@ -45,12 +55,25 @@
 .message:hover .message-actions {
     display: block;
 }
-
-header{
+header {
     height: 90px;
-    width:  670px;
+    width: 670px; /* הרוחב הקבוע */
     background-color: #064e37;
-    background: linear-gradient(#111f17, #064e37, #07996b)
-
-
+    background: linear-gradient(#111f17, #064e37, #07996b);
+    margin: 0 auto; /* מרכז את ה-header אופקית */
+    text-align: center; /* מיישר את הטקסט במרכז */
+ 
+}
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#test {
+    position: fixed; /* מציב את ה-canvas כאלמנט קבוע ברקע */
+    top: 0;
+    left: 0;
+    width: 100%; /* מתאים את הרוחב למסך */
+    height: 100%; /* מתאים את הגובה למסך */
+    z-index: -1; /* שולח את ה-canvas לשכבה מתחת */
+    pointer-events: none; /* מונע קליקים על ה-canvas */
+    background-color: #111f17;
 }
