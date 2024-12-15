@@ -55,6 +55,9 @@
 .message:hover .message-actions {
     display: block;
 }
+#nameButton{
+    text-align: right;
+}
 header {
     height: 90px;
     width: 670px; /* הרוחב הקבוע */
@@ -66,7 +69,22 @@ header {
 }
 h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #72a980;
+    font-weight: bold;
+    animation: glow 2s ease-in-out infinite alternate;
+    font-size:4rem;
+    font-weight: 300;
+    text-shadow: 0 0 5px #41d1a5;
+    margin-top: 24px;
 }
+@keyframes glow {
+    from {
+      text-shadow: 0 0 20px #025141;
+    }
+    to {
+      text-shadow: 0 0 50px #115b28, 0 0 10px #018a48;
+    }
+  }
 #test {
     position: fixed; /* מציב את ה-canvas כאלמנט קבוע ברקע */
     top: 0;
@@ -74,6 +92,6 @@ h1{
     width: 100%; /* מתאים את הרוחב למסך */
     height: 100%; /* מתאים את הגובה למסך */
     z-index: -1; /* שולח את ה-canvas לשכבה מתחת */
-    pointer-events: none; /* מונע קליקים על ה-canvas */
+   
     background-color: #111f17;
 }
