@@ -89,10 +89,10 @@ h1{
 }
 @keyframes glow {
     from {
-      text-shadow: 0 0 20px #025141;
+      text-shadow: 0 0 40px #025141;
     }
     to {
-      text-shadow: 0 0 50px #115b28, 0 0 10px #018a48;
+      text-shadow: 0 0 70px #115b28, 0 0 20px #018a48;
     }
   }
 #test {
@@ -104,4 +104,24 @@ h1{
     z-index: -1; /* שולח את ה-canvas לשכבה מתחת */
    
     background-color: #111f17;
+}
+
+#open_emoji{
+    position: relative;
+    top: -50px; /* מיקום מעל חלון הצ'אט */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* ברירת מחדל מוסתר */
+}
+
+#send_emoji{
+    margin-left: 10px;
+    
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
