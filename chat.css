@@ -106,16 +106,7 @@ h1{
     background-color: #111f17;
 }
 
-#open_emoji{
-    position: relative;
-    top: -50px; /* מיקום מעל חלון הצ'אט */
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    max-height: 200px;
-    overflow-y: auto;
-    display: none; /* ברירת מחדל מוסתר */
-}
+
 
 #send_emoji{
     margin-left: 10px;
@@ -124,4 +115,28 @@ h1{
     border: none;
     font-size: 24px;
     cursor: pointer;
+}
+
+.emoji-container {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    max-width: 200px;
+    white-space: pre-wrap;
+    position: relative;
+    top: -50px; /* מיקום מעל חלון הצ'אט */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.emoji-container span {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px;
 }
