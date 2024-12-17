@@ -24,12 +24,69 @@
         <button id="nameButton" class="btn btn-primary">הגדר את שמך</button>
         <div id="chat-messages"></div>
         <div class="input-group mt-3">
-            <input type="text" id="message-input" class="form-control" placeholder="הקלד את ההודעה שלך ולחץ Enter">
+            <input  id="message-input" class="form-control" placeholder="הקלד את ההודעה שלך ולחץ Enter">
             <button id="send-button" class="btn btn-success">שלח</button>
             <button id="send_emoji">😀</button>
-            <div id="open-emoji" class="emoji-container">
-😀😃😄😁😆😅😂🤣🥲🥹☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚
-😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😒😞😔😟😕🙁😣😖😫🥺😭😮‍💨😤
+            <div id="open_emoji" class="emoji-container">
+               <span>😀</span> <span>😄</span>  <span>😁</span>
+               <span> 😃</span>  <span>😆</span>  <span>😚</span>
+               <span>😙</span>  <span>😗</span>  <span>😘</span>
+               <span>🥰</span>  <span>😍</span>  <span>😌</span>
+               <span>😉</span>  <span>🙃</span>  <span>🙂</span>
+               <span>😅</span>  <span>😇</span>  <span>😊</span>  <span>☺️</span>
+               <span>🥹</span>  <span>🥲</span>  <span>🤣</span>  <span>😂</span>
+               <span>😋</span>  <span>😛</span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               <span></span>  <span></span>  <span></span>  <span></span>
+               
+
+
+               
+
+😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😒😞😔😟😕🙁😣😖😫🥺😭😮‍💨😤
 😠😨😰😥😓🫣🤗🫡🤔🫢🤭🤫🫨🫠🙄😐😑😬😁😆😅😯😦😧😮😲
 🥱😴🤤😪😵😵‍💫🫥🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👹👺
 אימוגי' | אנשים ורגשות
@@ -88,6 +145,7 @@
   
 </header>
     <script>
+        let isOpen = false;
         let userName;
         const userColors = {};
 
@@ -139,22 +197,36 @@
 
 
         document.getElementById("send-button").addEventListener("click", sendMessage);
+        
 //הוספת אימוג'י
-const send_emoji=document.getElementById('send_emoji')
-isOpen=false;
-send_emoji.addEventListener('click',()=>{ 
-  const open_emoji=document.getElementById('open_emoji')
-   isOpen=!isOpen
-   open_emoji.style.display=isOpen?'block':'none';
-  
 
-   })
-   const open_emoji=document.getElementById('open_emoji')
-   open_emoji.addEventListener('click',(event)=>{
-    const emoji=event.target.textContent;
-    const input = document.getElementById('message-input');
-    input.value += emoji; // מוסיף את האימוג'י להודעה
-   })
+    document.getElementById('send_emoji').addEventListener('click', () => {
+        const emojiContainer = document.getElementById('open_emoji');
+        isOpen = !isOpen;
+        emojiContainer.style.display = isOpen ? 'block' : 'none';
+    });
+
+    // טיפול בלחיצה על אימוג'י בתיבת האימוג'ים
+    document.getElementById('open_emoji').addEventListener('click', (event) => {
+        const input = document.getElementById('message-input');
+        if (event.target !== event.currentTarget) { // בדיקה שהלחיצה היא על אימוג'י ולא על הקונטיינר
+            const emoji = event.target.textContent.trim(); // תוכן האימוג'י שנלחץ
+            input.value += emoji; // הוספת האימוג'י לשדה ההקלדה
+            input.focus(); // החזרת הפוקוס לשדה הקלט
+        }
+    });
+
+    // סגירת תיבת האימוג'ים אם לוחצים מחוץ לה
+    document.addEventListener('click', (event) => {
+        const emojiContainer = document.getElementById('open_emoji');
+        const sendEmojiButton = document.getElementById('send_emoji');
+        if (!emojiContainer.contains(event.target) && event.target !== sendEmojiButton) {
+            emojiContainer.style.display = 'none';
+            isOpen = false;
+        }
+    })
+
+    
         // פונקציה לשליחת הודעה 
         function sendMessage() {
             const message = document.getElementById("message-input").value.trim();

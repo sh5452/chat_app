@@ -109,8 +109,7 @@ h1{
 
 
 #send_emoji{
-    margin-left: 10px;
-    
+    margin-left: 10px;  
     background: transparent;
     border: none;
     font-size: 24px;
@@ -122,21 +121,23 @@ h1{
     border: 1px solid #ccc;
     padding: 10px;
     background-color: #fff;
-    position: absolute;
     z-index: 1000;
-    max-width: 200px;
+    width: 200px;
     white-space: pre-wrap;
-    position: relative;
-    top: -50px; /* מיקום מעל חלון הצ'אט */
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
+    position: absolute;
+   bottom: 30px;
+    right: 770px; /* מיקום לצד הכפתור */
     max-height: 200px;
-    overflow-y: auto;
+    cursor: pointer;
+     background-color: rgba(0, 0, 0, 0.5);/*רקע חצי שקוף*/
+     overflow-y: auto; /* גלילה במקרה של הרבה אימוג'ים */
+     white-space: normal; /* שבירת שורה אם התיבה צרה */
+     font-size: 34px; /* גודל האימוג'ים */
+     line-height: 1.5; /* מרווח בין שורות */
 }
 
-.emoji-container span {
-    cursor: pointer;
-    font-size: 20px;
-    margin: 5px;
-}
+
+
+
+
+
