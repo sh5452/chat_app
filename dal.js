@@ -31,14 +31,14 @@ const connectedKnex = knex({
 })
 
 async function create_table_if_not_exist() {
-    const tableExists = await connectedKnex.schema.hasTable('COMPANY');
+    const tableExists = await connectedKnex.schema.hasTable('CHAT');
 
     if (!tableExists) {
-      await connectedKnex.schema.createTable('COMPANY', (table) => {
+      await connectedKnex.schema.createTable('CHAT', (table) => {
         table.increments('ID').primary(); // This creates a SERIAL column
         table.string('NAME').notNullable();
-        table.integer('AGE').notNullable();
-        table.string('ADDRESS', 50);
+        table.integer('TIME').notNullable();
+        table.string('message', 50);
         table.decimal('SALARY');
       });
     }

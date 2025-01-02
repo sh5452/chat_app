@@ -1,0 +1,21 @@
+{
+    "db_local":{
+        "host":"127.0.0.1",
+    "user":"postgres",
+    "password":"admin",
+   "database": "postgres"  
+    } ,
+    "db_cloud" :{
+        "host":"dpg-ct728rg8fa8c73cmq530-a.oregon-postgres.render.com",
+        "user":"cloud_28y9_user",
+        "password":"Hr1VKVIXS9x6W4TKbll2VuQIiYz82Oht",
+        "database":"cloud_28y9"
+    },
+    "db_cloud_local":{
+      "host":"dpg-ct728rg8fa8c73cmq530-a",
+        "user":"cloud_28y9_user",
+        "password":"Hr1VKVIXS9x6W4TKbll2VuQIiYz82Oht",
+        "database":"cloud_28y9"  
+    }
+  
+}
