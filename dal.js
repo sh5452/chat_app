@@ -2,6 +2,7 @@
 const knex = require('knex')
 const config = require('config')
 
+
 // const connectedKnex = knex({
 //     client: 'pg',
 //     version: '13',
@@ -39,7 +40,7 @@ async function create_table_if_not_exist() {
         table.string('NAME').notNullable();
         table.integer('TIME').notNullable();
         table.string('message', 50);
-        table.decimal('SALARY');
+      
       });
     }
 
@@ -52,44 +53,44 @@ create_table()
 
 async function delete_all() {
     // db.run('update company ....')
-    const result = await connectedKnex('COMPANY').del()
-    await connectedKnex.raw('ALTER SEQUENCE "COMPANY_ID_seq" RESTART WITH 1');
+    const result = await connectedKnex('CHAT').del()
+    await connectedKnex.raw('ALTER SEQUENCE "CHAT_ID_seq" RESTART WITH 1');
     return result    
 }
 
 async function get_all() {
     // db.run('select * from company')
-    const emplyees = await connectedKnex('COMPANY').select('*')
-    return emplyees
+    const users = await connectedKnex('CHAT').select('*')
+    return users
 }
 
 async function get_by_id(id) {
     // db.run('select * from company where id=?')
-    const emplyee = await connectedKnex('COMPANY').select('*').where('ID', id).first()
-    return emplyee
+    const user = await connectedKnex('CHAT').select('*').where('ID', id).first()
+    return user
 }
 
-async function new_employee(new_emp) {
+async function new_user(new_userName) {
     // db.run('insert into company ....')
     // result[0] will be the new ID given by the SQL
     // Insert into company values(....)
-    const result = await connectedKnex('COMPANY').insert(new_emp)
-    return { ...new_emp, ID: result[0] }
+    const result = await connectedKnex('CHAT').insert(new_userName)
+    return { ...new_userName, ID: result[0] }
 }
 
-async function update_emplyee(id, updated_employee) {
+async function update_user(id, updated_user) {
     // db.run('update company ....')
-    const result = await connectedKnex('COMPANY').where('ID', id).update(updated_employee)
+    const result = await connectedKnex('CHAT').where('ID', id).update(updated_user)
     return updated_employee
 }
 
-async function delete_employee(id) {
+async function delete_user(id) {
     // db.run('update company ....')
-    const result = await connectedKnex('COMPANY').where('ID', id).del()
+    const result = await connectedKnex('CHAT').where('ID', id).del()
     return result
 }
 
 module.exports = {
-    get_all, get_by_id, new_employee, update_emplyee, delete_employee, 
+    get_all, get_by_id, new_user, update_user, delete_user, 
     delete_all, create_table_if_not_exist
 }
