@@ -3,19 +3,19 @@
         "host":"127.0.0.1",
     "user":"postgres",
     "password":"admin",
-   "database": "postgres"  
+   "database": "chat_cloud"  
     } ,
     "db_cloud" :{
-        "host":"dpg-ct728rg8fa8c73cmq530-a.oregon-postgres.render.com",
-        "user":"cloud_28y9_user",
-        "password":"Hr1VKVIXS9x6W4TKbll2VuQIiYz82Oht",
-        "database":"cloud_28y9"
+        "host":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl@dpg-cttff43qf0us73erj380-a.oregon-postgres.render.com",
+        "user":"chat_cloud_user",
+        "password":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl",
+        "database":"chat_cloud"
     },
     "db_cloud_local":{
-      "host":"dpg-ct728rg8fa8c73cmq530-a",
-        "user":"cloud_28y9_user",
-        "password":"Hr1VKVIXS9x6W4TKbll2VuQIiYz82Oht",
-        "database":"cloud_28y9"  
+      "host":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl@dpg-cttff43qf0us73erj380-a",
+        "user":"chat_cloud_user",
+        "password":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl",
+        "database":"chat_cloud"  
     }
   
 }
