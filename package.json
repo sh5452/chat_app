@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sh5452/chat_app1.git"
+    "url": ""
   },
   "keywords": [],
   "author": "sh5452",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sh5452/chat_app1/issues"
+    "url": "https://github.com/sh5452/chat_app/issues"
   },
-  "homepage": "https://github.com/sh5452/chat_app1#readme",
+  "homepage": "https://github.com/sh5452/chat_app#readme",
   "dependencies": {
     "app": "^0.1.0",
     "chai": "^5.1.2",
