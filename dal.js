@@ -69,12 +69,14 @@ async function get_by_id(id) {
     const user = await connectedKnex('CHAT').select('*').where('ID', id).first()
     return user
 }
-
 async function new_user(new_userName) {
-    // db.run('insert into company ....')
-    // result[0] will be the new ID given by the SQL
-    // Insert into company values(....)
-    const result = await connectedKnex('CHAT').insert(new_userName)
+    console.log("new userName",new_userName); // לבדוק מה באמת מתקבל
+    const result = await connectedKnex('CHAT').insert({
+        NAME: new_userName.user,
+        TIME: new Date().time,
+        message: new_userName.text
+       
+    });
     return { ...new_userName, ID: result[0] }
 }
 
