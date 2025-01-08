@@ -38,7 +38,7 @@ async function create_table_if_not_exist() {
       await connectedKnex.schema.createTable('CHAT', (table) => {
         table.increments('ID').primary(); // This creates a SERIAL column
         table.string('NAME').notNullable();
-        table.integer('TIME').notNullable();
+        table.timestamp('TIME').notNullable();
         table.string('message', 550);
       
       });
@@ -81,7 +81,7 @@ async function new_user(new_userName) {
 async function update_user(id, updated_user) {
     // db.run('update company ....')
     const result = await connectedKnex('CHAT').where('ID', id).update(updated_user)
-    return updated_employee
+    return updated_user
 }
 
 async function delete_user(id) {

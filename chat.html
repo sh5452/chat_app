@@ -232,8 +232,9 @@
     messageDiv.className = `message ${isMyMessage ? 'my-message' : 'other-message'}`;
     messageDiv.id = `message-${messageId}`; // הוספת ID ייחודי להודעה
 
-    const now = new Date();
-    const time = now.toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' });
+   
+const now = new Date();
+const time = now.toISOString().slice(0, 19).replace('T', ' ');
 
     const backgroundColor = getUserColor(sender);
     messageDiv.style.backgroundColor = backgroundColor;
