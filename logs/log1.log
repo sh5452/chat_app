@@ -1,0 +1,18 @@
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-08T23:03:33.675Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-08T23:03:34.387Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-08T23:03:34.391Z'
+}

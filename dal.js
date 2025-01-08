@@ -71,12 +71,7 @@ async function get_by_id(id) {
 }
 async function new_user(new_userName) {
     console.log("new userName",new_userName); // לבדוק מה באמת מתקבל
-    const result = await connectedKnex('CHAT').insert({
-        NAME: new_userName.user,
-        TIME: new Date().time,
-        message: new_userName.text
-       
-    });
+    const result = await connectedKnex('CHAT').insert(new_userName);
     return { ...new_userName, ID: result[0] }
 }
 
