@@ -31,8 +31,8 @@ server.use(middlewares);
 server.use(router);
 // GET 
 app.get('/api/users', async (request, response) => {
-  const employees = await dal.get_all()
-  response.json(employees)
+  const users = await dal.get_all()
+  response.json(users)
 })
 // GET by ID
 app.get('/api/user/:id', async (request, response) => {
@@ -48,7 +48,7 @@ app.get('/api/user/:id', async (request, response) => {
 // POST
 app.post('/api/user', async (request, response) => {
   const new_user = request.body
-  const result = await dal.new_employee(new_user)
+  const result = await dal.new_user(new_user)
   response.status(201).json(result)
 })
 // PUT
@@ -58,7 +58,7 @@ app.put('/api/user/:id', async (request, response) => {
   if (user) {
       // user exists ==> perform update
       const updated_user_req = request.body
-      const result = await dal.update_emplyee(user_id, updated_user_req)
+      const result = await dal.update_user(user_id, updated_user_req)
       response.json(updated_user_req)
   }
   else {
@@ -74,7 +74,7 @@ app.patch('/api/user/:id', async (request, response) => {
   const user_id = parseInt(request.params.id)
   const user = await dal.get_by_id(user_id)
   // override only existing fields in the user from the db
-  const result = await dal.update_emplyee(user_id, { ...user, ...updated_user_req })
+  const result = await dal.update_user(user_id, { ...user, ...updated_user_req })
   response.json({ result })
 
 })
@@ -82,7 +82,7 @@ app.patch('/api/user/:id', async (request, response) => {
 // DELETE
 app.delete('/api/user/:id', async (request, response) => {
   const user_id = parseInt(request.params.id)
-  const result = await dal.delete_employee(user_id)
+  const result = await dal.delete_user(user_id)
   response.status(204).json({ result })
 
 })
