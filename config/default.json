@@ -6,13 +6,13 @@
    "database": "chat_cloud"  
     } ,
     "db_cloud" :{
-        "host":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl@dpg-cttff43qf0us73erj380-a.oregon-postgres.render.com",
+        "host":"dpg-cttff43qf0us73erj380-a.oregon-postgres.render.com",
         "user":"chat_cloud_user",
         "password":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl",
         "database":"chat_cloud"
     },
     "db_cloud_local":{
-      "host":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl@dpg-cttff43qf0us73erj380-a",
+      "host":"dpg-cttff43qf0us73erj380-a",
         "user":"chat_cloud_user",
         "password":"peHl5FR6rCJAThCZWZwbkScHjlHKuFhl",
         "database":"chat_cloud"  

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test":"mocha *.test.js"
+    "test": "mocha *.test.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "app": "^0.1.0",
     "chai": "^5.1.2",
+    "config": "^3.3.12",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "json-server": "^0.17.4",
