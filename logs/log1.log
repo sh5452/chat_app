@@ -2,179 +2,35 @@
   message: '==== System start =======',
   level: 'info',
   label: 'REST API App',
-  timestamp: '2025-01-08T23:03:33.675Z'
+  timestamp: '2025-01-12T21:27:34.039Z'
 }
 {
   message: '==== System stop =======',
   level: 'info',
   label: 'REST API App',
-  timestamp: '2025-01-08T23:03:34.387Z'
+  timestamp: '2025-01-12T21:27:34.418Z'
 }
 {
   message: '==== Server started =======',
   level: 'info',
   label: 'REST API App',
-  timestamp: '2025-01-08T23:03:34.391Z'
+  timestamp: '2025-01-12T21:27:34.420Z'
 }
 {
   message: '==== System start =======',
   level: 'info',
   label: 'REST API App',
-  timestamp: '2025-01-08T23:09:37.692Z'
+  timestamp: '2025-01-12T21:29:11.959Z'
 }
 {
   message: '==== System stop =======',
   level: 'info',
   label: 'REST API App',
-  timestamp: '2025-01-08T23:09:38.280Z'
+  timestamp: '2025-01-12T21:29:12.339Z'
 }
 {
   message: '==== Server started =======',
   level: 'info',
   label: 'REST API App',
-  timestamp: '2025-01-08T23:09:38.285Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-08T23:16:36.789Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-08T23:16:37.370Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-08T23:16:37.374Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T00:23:32.132Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T00:23:32.884Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T00:23:32.888Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T00:29:43.702Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T00:29:44.189Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T00:29:44.192Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T09:44:26.933Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T09:44:27.825Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T09:44:27.830Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T11:30:44.291Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T11:30:45.132Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T11:30:45.137Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T21:47:10.253Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T21:47:11.203Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-09T21:47:11.207Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-12T20:04:12.811Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-12T20:04:13.311Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-12T20:04:13.314Z'
-}
-{
-  message: '==== System start =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-12T20:14:19.177Z'
-}
-{
-  message: '==== System stop =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-12T20:14:19.570Z'
-}
-{
-  message: '==== Server started =======',
-  level: 'info',
-  label: 'REST API App',
-  timestamp: '2025-01-12T20:14:19.572Z'
+  timestamp: '2025-01-12T21:29:12.341Z'
 }
