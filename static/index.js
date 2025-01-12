@@ -1,17 +1,17 @@
-const logger = require('./logger/my_logger')
+const logger = require('../logger/my_logger')
 
 logger.info('==== System start =======')
 
-const dal = require('./dal')
+
 const path = require('path')
-const jsonServer = require("json-server");
+// const jsonServer = require("json-server");
 const express = require('express')
 const body_parser = require('body-parser')
 const cors = require('cors');
-const chat_routers=require('./routers/chat_router')
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
+const chat_routers=require('../routers/chat_router')
+// const server = jsonServer.create();
+// const router = jsonServer.router("db.json");
+// const middlewares = jsonServer.defaults();
 
 const app = express();
 app.use('/api/chat',chat_routers)
@@ -27,19 +27,18 @@ app.use(cors({
 }));
 
 // הפעלת middlewares
-server.use(middlewares);
+// server.use(middlewares);
 
 // חיבור ה-router
-server.use(router);
+// server.use(router);
 
 
 
 
 // התחלת השרת
-server.listen(port, () => {
-  console.log(`JSON Server is running on port ${port}`);
+app.listen(port, () => {
   logger.info('==== Server started =======')
-  console.log('Express server is running ....');
+  console.log(`Express server is running on port ${port}`);
 });
 
 logger.info('==== System stop =======')

@@ -142,3 +142,39 @@
   label: 'REST API App',
   timestamp: '2025-01-09T21:47:11.207Z'
 }
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-12T20:04:12.811Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-12T20:04:13.311Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-12T20:04:13.314Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-12T20:14:19.177Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-12T20:14:19.570Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-12T20:14:19.572Z'
+}

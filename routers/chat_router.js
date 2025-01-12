@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const dal=require('../dal')
+const dal=require('../static/dal')
 
 //GET
 router.get('/', async (request, response) => {
