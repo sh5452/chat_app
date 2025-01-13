@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const dal=require('../static/dal')
+const dal=require('../dal')
 
 //GET
 router.get('/', async (request, response) => {
@@ -30,8 +30,8 @@ router.get('/:id', async (request, response) => {
 // POST
 router.post('/', async (request, response) => {
     try {
-        const new_userName = request.body
-        const result = await dal.new_user(new_userName)
+        const new_user_message = request.body
+        const result = await dal.new_message(new_user_message)
         response.status(201).json(result)
     }
     catch (e) {

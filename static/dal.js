@@ -69,10 +69,10 @@ async function get_by_id(id) {
     const user = await connectedKnex('CHAT').select('*').where('ID', id).first()
     return user
 }
-async function new_user(new_userName) {
+async function new_message(new_user_message) {
     console.log("new userName",new_userName); // לבדוק מה באמת מתקבל
-    const result = await connectedKnex('CHAT').insert(new_userName);
-    return { ...new_userName, ID: result[0] }
+    const result = await connectedKnex('CHAT').insert(new_user_message);
+    return { ...new_user_message, ID: result[0] }
 }
 
 async function update_user(id, updated_user) {
@@ -88,6 +88,6 @@ async function delete_user(id) {
 }
 
 module.exports = {
-    get_all, get_by_id, new_user, update_user, delete_user, 
+    get_all, get_by_id, new_message, update_user, delete_user, 
     delete_all, create_table_if_not_exist
 }
