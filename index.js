@@ -8,14 +8,16 @@ const path = require('path')
 const express = require('express')
 const body_parser = require('body-parser')
 const cors = require('cors');
-const chat_routers=require('./static/routers/chat_router')
+const chat_routers=require('./routers/chat_router')
 // const server = jsonServer.create();
 // const router = jsonServer.router("db.json");
 // const middlewares = jsonServer.defaults();
 
 const app = express();
-app.use('/api/chat',chat_routers)
-app.use(express.static(path.join('.', '/static/'))) 
+
+app.use(express.static(path.join('.', '/static/')))
+const swaggerJsdoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express') 
 app.use(body_parser.json())
 const port = process.env.PORT || 3001;
 
@@ -41,4 +43,32 @@ app.listen(port, () => {
   console.log(`Express server is running on port ${port}`);
 });
 
+const options = {
+  definition: {
+      openapi: "3.0.0",
+      info: {
+          title: "Library API",
+          version: "1.0.0",
+          description: "My REST API employee",
+      },
+      servers: [
+          {
+              url: "https://chat-app-58mc.onrender.com/",
+          },
+      ],
+  },
+  apis: ["./routers/*.js"],
+};
+
+const specs = swaggerJsdoc(options);
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+);
+
+
+
+app.use('/api/chat',chat_routers)
 logger.info('==== System stop =======')
