@@ -6,9 +6,7 @@ const logger=require('../logger/my_logger')
 
 /**
 *  @swagger
-*  components:
-*     schemas:
-*       Message:
+
 *         type: object
 *         required:
 *           - id
@@ -50,7 +48,7 @@ const logger=require('../logger/my_logger')
 *           content:
 *             application/json:
 *               schema:
-*                 $ref: '#/components/schemas/Message'
+*                 $ref: '#/components/schemas/chat'
 */
 
 router.get('/', async (request, response) => {
