@@ -3,38 +3,35 @@ const router=express.Router()
 const dal=require('../static/dal')
 const logger=require('../logger/my_logger')
 
-
-/**
-*  @swagger
-
-*         type: object
-*         required:
-*           - id
-*           - name
-*           - time
-*           - message
-*           
-*         properties:
-*           id:
-*             type: number
-*             description: The auto-generated id of the message.
-*           name:
-*             type: string
-*             description: The name of the user.
-*           time:
-*             type: timestamp
-*             description: time of the message
-*           message:
-*             type: string
-*             description: The message we write
-*         example:
-*           name: Kim
-*           time:2025-01-13 13:30:33
-*           message: Hello everybody
-*           
+/** 
+*components:
+*  schemas:
+*    Message:
+*     type: object
+*     required:
+*        - id
+*        - name
+*        - time
+*        - message
+*      properties:
+*        id:
+*          type: number
+*          description: The auto-generated id of the message.
+*        name:
+*          type: string
+*          description: The name of the user.
+*        time:
+*          type: string
+*          description: time of the message
+*        message:
+*          type: string
+*          description: The message we write
+*      example:
+*        name: Kim
+*        time: 2025-01-13 13:30:33
+*        message: Hello everybody
 */
 
-//GET
 
 // GET 
 /**
@@ -42,14 +39,14 @@ const logger=require('../logger/my_logger')
 *   /api/chat/:
 *     get:
 *       summary: List all of the messages
-*       responses:
-*         "200":
-*           description: The list of messages.
-*           content:
-*             application/json:
-*               schema:
-*                 $ref: '#/components/schemas/chat'
-*/
+*responses:
+ * 200:
+ *   description: Successful response with the message details.
+ *  content:
+ *     application/json:
+ *  schema:
+ * $ref: '#/components/schemas/Message'
+ */
 
 router.get('/', async (request, response) => {
     try {
@@ -70,7 +67,7 @@ router.get('/', async (request, response) => {
  * /api/chat/{id}:
  *   get:
  *     summary: Get message by ID
- *     description: Retrievemessage details based on the provided ID.
+ *     description: Retrieve message details based on the provided ID.
  *     parameters:
  *       - in: path
  *         name: id
@@ -84,17 +81,18 @@ router.get('/', async (request, response) => {
  *         content:
  *           application/json:
  *             example:
- *               ID: 4
- *               NAME:shuli
- *               TIME:2025-01-09 00:29:16
- *               MESSAGE:HELLO WORLD
+ *               id: 4
+ *               name: shuli
+ *               time: 2025-01-09 00:29:16
+ *               message: HELLO WORLD
  *       404:
- *         description:MESSAGE not found with the specified ID.
+ *         description: Message not found with the specified ID.
  *         content:
  *           application/json:
  *             example:
  *               error: cannot find message with id {id}
  */
+
 
 router.get('/:id', async (request, response) => {
     const user_id = parseInt(request.params.id)
@@ -109,6 +107,7 @@ router.get('/:id', async (request, response) => {
 })
 // POST
 
+
 /**
  * @swagger
  * /api/chat:
@@ -122,30 +121,29 @@ router.get('/:id', async (request, response) => {
  *           schema:
  *             type: object
  *             properties:
- *               NAME:
+ *               name:
  *                 type: string
  *                 description: The name of the user.
- *               TIME:
- *                 type: timestamp
+ *               time:
+ *                 type: string
  *                 description: The time of the message.
- *               MESSAGE:
+ *               message:
  *                 type: string
  *                 description: The message we write.
  *             example:
  *               name: John Doe
  *               time: 2025-01-13 13:50:33
  *               message: test test test 123
- *               
  *     responses:
  *       201:
  *         description: User and message created successfully.
  *         content:
  *           application/json:
  *             example:
- *               ID: 1
- *               NAME: John Doe
- *               TIME: 2025-01-13 13:50:33
- *               MESSAGE: test test test 123
+ *               id: 1
+ *               name: John Doe
+ *               time: 2025-01-13 13:50:33
+ *               message: test test test 123
  *       400:
  *         description: Bad request. Ensure all required fields are provided.
  *         content:
@@ -220,14 +218,14 @@ router.patch('/:id', async (request, response) => {
  *       - in: path
  *         name: id
  *         required: true
- *         description: The ID of the user with messsage to delete.
+ *         description: The ID of the user with message to delete.
  *         schema:
  *           type: integer
  *     responses:
  *       204:
- *         description: User with message deleted successfully.
+ *         description: User and message deleted successfully.
  *       404:
- *         description: User with message not found with the specified ID.
+ *         description: User and message not found with the specified ID.
  *         content:
  *           application/json:
  *             example:

@@ -52,14 +52,14 @@ async function create_table(){
 create_table()
 
 async function delete_all() {
-    // db.run('update company ....')
+    // db.run('update chat ....')
     const result = await connectedKnex('CHAT').del()
     await connectedKnex.raw('ALTER SEQUENCE "CHAT_ID_seq" RESTART WITH 1');
     return result    
 }
 
 async function get_all() {
-    // db.run('select * from company')
+    // db.run('select * from chat')
     const users = await connectedKnex('CHAT').select('*')
     return users
 }
