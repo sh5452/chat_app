@@ -202,7 +202,7 @@
                 };
                 console.log(newMessage);  // כדי לוודא שההודעה נשלחת כראוי
 
-                fetch('/api/chat', {
+                fetch('/static/chat.html', {
                     method: 'POST',
                     body: JSON.stringify(newMessage),
                     headers: {
