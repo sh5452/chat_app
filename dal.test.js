@@ -13,9 +13,9 @@ describe('Testing functionallity of the DAL' ,function (){
 
         await dal.create_table_if_not_exist()
         await dal.delete_all()
-        await dal.new_user({ 'NAME': 'Paul', 'TIME': time, 'message': 'HI'})  // Id: 1
-        await dal.new_user({ 'NAME': 'Allen', 'TIME': time, 'message': 'HELLO'}) // Id: 2
-        await dal.new_user({ 'NAME': 'Teddy', 'TIME': time, 'message': '123 TEST'}) // Id: 3
+        await dal.new_message({ 'NAME': 'Paul', 'TIME': time, 'message': 'HI'})  // Id: 1
+        await dal.new_message({ 'NAME': 'Allen', 'TIME': time, 'message': 'HELLO'}) // Id: 2
+        await dal.new_message({ 'NAME': 'Teddy', 'TIME': time, 'message': '123 TEST'}) // Id: 3
         console.log('Test data setup complete.');
     })
 
@@ -53,8 +53,8 @@ describe('Testing functionallity of the DAL' ,function (){
         assert.strictEqual(expected, user_id_3)
     })        
 
-    it('new_userName', async function(){
-        await dal.new_user({ 'NAME': 'Shuli', 'TIME': time, 'message': 'HELLO WORLD', }) // Id: 4
+    it('new_message', async function(){
+        await dal.new_message({ 'NAME': 'Shuli', 'TIME': time, 'message': 'HELLO WORLD', }) // Id: 4
         const expected = 'Shuli'
         const user_id_4 = await dal.get_by_id(4)
         assert.strictEqual(expected, user_id_4.NAME)

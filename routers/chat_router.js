@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const dal=require('../static/dal')
+const dal=require('../dal')
 const logger=require('../logger/my_logger')
 
 /** 
