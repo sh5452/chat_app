@@ -358,3 +358,45 @@
   label: 'REST API App',
   timestamp: '2025-01-28T21:36:48.939Z'
 }
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:41:35.324Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:41:35.986Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:41:36.021Z'
+}
+{
+  message: 'Error during post {}',
+  level: 'error',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:42:02.565Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:43:46.296Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:43:46.889Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-01-28T21:43:46.891Z'
+}
