@@ -70,5 +70,5 @@ app.use(
 
 
 
-app.use('/api/chat',chat_routers)
+app.use('/static/chat.html',chat_routers)
 logger.info('==== System stop =======')
