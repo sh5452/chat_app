@@ -4,14 +4,14 @@ logger.info('==== System start =======')
 
 
 const path = require('path')
-// const jsonServer = require("json-server");
+const jsonServer = require("json-server");
 const express = require('express')
 const body_parser = require('body-parser')
 const cors = require('cors');
 const chat_routers=require('./routers/chat_router')
-// const server = jsonServer.create();
-// const router = jsonServer.router("db.json");
-// const middlewares = jsonServer.defaults();
+const server = jsonServer.create();
+const router = jsonServer.router("db.json");
+const middlewares = jsonServer.defaults();
 
 const app = express();
 
@@ -29,10 +29,10 @@ app.use(cors({
 }));
 
 // הפעלת middlewares
-// server.use(middlewares);
+server.use(middlewares);
 
 // חיבור ה-router
-// server.use(router);
+server.use(router);
 
 
 
@@ -43,22 +43,22 @@ app.listen(port, () => {
   console.log(`Express server is running on port ${port}`);
 });
 
-const options = {
-  definition: {
-      openapi: "3.0.0",
-      info: {
-          title: "Library API",
-          version: "1.0.0",
-          description: "My REST API employee",
-      },
-      servers: [
-          {
-              url: "https://chat-app-58mc.onrender.com/",
-          },
-      ],
-  },
-  apis: ["./routers/*.js"],
-};
+// const options = {
+//   definition: {
+//       openapi: "3.0.0",
+//       info: {
+//           title: "Library API",
+//           version: "1.0.0",
+//           description: "My REST API employee",
+//       },
+//       servers: [
+//           {
+//               url: "https://chat-app-58mc.onrender.com/",
+//           },
+//       ],
+//   },
+//   apis: ["./routers/*.js"],
+// };
 
 const specs = swaggerJsdoc(options);
 
