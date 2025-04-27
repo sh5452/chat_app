@@ -490,3 +490,21 @@
   label: 'REST API App',
   timestamp: '2025-02-25T08:05:57.547Z'
 }
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-27T20:27:14.165Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-27T20:27:15.472Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-27T20:27:15.474Z'
+}

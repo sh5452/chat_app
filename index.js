@@ -43,22 +43,22 @@ app.listen(port, () => {
   console.log(`Express server is running on port ${port}`);
 });
 
-// const options = {
-//   definition: {
-//       openapi: "3.0.0",
-//       info: {
-//           title: "Library API",
-//           version: "1.0.0",
-//           description: "My REST API employee",
-//       },
-//       servers: [
-//           {
-//               url: "https://chat-app-58mc.onrender.com/",
-//           },
-//       ],
-//   },
-//   apis: ["./routers/*.js"],
-// };
+const options = {
+  definition: {
+      openapi: "3.0.0",
+      info: {
+          title: "Library API",
+          version: "1.0.0",
+          description: "My REST API employee",
+      },
+      servers: [
+          {
+              url: "https://chat-app-58mc.onrender.com/",
+          },
+      ],
+  },
+  apis: ["./routers/*.js"],
+};
 
 const specs = swaggerJsdoc(options);
 
