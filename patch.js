@@ -19,7 +19,7 @@ async function editMessage(messageDiv, sender, messageId) {
     if (result.isConfirmed && messageId) {  // בדיקה שה-ID תקין
         const newText = result.value;
         try {
-            const res = await fetch(`https://chat-app-58mc.onrender.com/chats/${messageId}`, {
+            const res = await fetch(`https://chat-app-8qzs.onrender.com/chats/${messageId}`, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     user: userName,

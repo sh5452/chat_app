@@ -53,7 +53,7 @@ const options = {
       },
       servers: [
           {
-              url: "https://chat-app-58mc.onrender.com/",
+              url: "https://chat-app-8qzs.onrender.com/",
           },
       ],
   },
