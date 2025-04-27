@@ -1,74 +1,68 @@
-const logger = require('./logger/my_logger')
-
-logger.info('==== System start =======')
-
-
-const path = require('path')
-const jsonServer = require("json-server");
-const express = require('express')
-const body_parser = require('body-parser')
+const express = require('express');
 const cors = require('cors');
-const chat_routers=require('./routers/chat_router')
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
+const path = require('path');
+const jsonServer = require('json-server');
+const bodyParser = require('body-parser');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const logger = require('./logger/my_logger');
+const chat_routers = require('./routers/chat_router');
+
+// התחלה
+logger.info('==== System start =======');
 
 const app = express();
+const server = jsonServer.create();
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
 
-app.use(express.static(path.join('.', '/static/')))
-const swaggerJsdoc = require('swagger-jsdoc')
-const swaggerUi = require('swagger-ui-express') 
-app.use(body_parser.json())
 const port = process.env.PORT || 3001;
 
-// הגדרת CORS
+// CORS
 app.use(cors({
-  origin: '*', // מאפשר גישה מכל מקור
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // התרת שיטות HTTP מסוימות
-  allowedHeaders: ['Content-Type', 'Authorization'] // התרת כותרות מסוימות
+  origin: '*',
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// הפעלת middlewares
-server.use(middlewares);
+// תמיכה בבקשות JSON
+app.use(bodyParser.json());
 
-// חיבור ה-router
-server.use(router);
+// חיבור לנתיב של הצ'אט (API אמיתי)
+app.use('/api/chat', chat_routers);
 
-
-
-
-// התחלת השרת
-app.listen(port, () => {
-  logger.info('==== Server started =======')
-  console.log(`Express server is running on port ${port}`);
-});
-
+// Swagger - תיעוד API
 const options = {
   definition: {
-      openapi: "3.0.0",
-      info: {
-          title: "Library API",
-          version: "1.0.0",
-          description: "My REST API employee",
+    openapi: "3.0.0",
+    info: {
+      title: "Chat App API",
+      version: "1.0.0",
+      description: "API for Chat Application",
+    },
+    servers: [
+      {
+        url: "https://chat-app-8qzs.onrender.com/",
       },
-      servers: [
-          {
-              url: "https://chat-app-8qzs.onrender.com/",
-          },
-      ],
+    ],
   },
   apis: ["./routers/*.js"],
 };
 
 const specs = swaggerJsdoc(options);
 
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(specs)
-);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
 
-app.use('/api/chat',chat_routers)
-logger.info('==== System stop =======')
+// JSON-Server API מדומה
+server.use(middlewares);
+server.use(router);
+
+// הפעלת שרת Express
+app.listen(port, () => {
+  logger.info('==== Server started =======');
+  console.log(`Express server is running on port ${port}`);
+});
+
+logger.info('==== System stop =======');
