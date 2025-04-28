@@ -1,7 +1,7 @@
 
 async function deleteMessage(messageId) {
     try {
-        const res = await fetch(`https://chat-app-8qzs.onrender.com/api/chat/${messageId}`, {
+        const res = await fetch(`https://chat-app-8qzs.onrender.com/api/db/chats/${messageId}`, {
             method: 'DELETE'
         });
 

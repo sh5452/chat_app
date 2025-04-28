@@ -718,3 +718,45 @@
   label: 'REST API App',
   timestamp: '2025-04-28T09:41:46.962Z'
 }
+{
+  message: 'Error during post {"length":121,"name":"error","severity":"ERROR","code":"42703","position":"21","file":"parse_target.c","line":"1066","routine":"checkInsertTargets"}',
+  level: 'error',
+  label: 'REST API App',
+  timestamp: '2025-04-28T09:53:17.046Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T09:55:44.303Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T09:55:44.352Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T09:57:13.484Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T09:57:13.533Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T14:39:43.988Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T14:39:44.026Z'
+}
