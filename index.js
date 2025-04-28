@@ -12,7 +12,6 @@ const chat_routers = require('./routers/chat_router');
 logger.info('==== System start =======');
 
 const app = express();
-const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
@@ -30,6 +29,9 @@ app.use(bodyParser.json());
 
 // חיבור לנתיב של הצ'אט (API אמיתי)
 app.use('/api/chat', chat_routers);
+
+// חיבור JSON-Server מדומה תחת /api/db
+app.use('/api/db', middlewares, router);
 
 // Swagger - תיעוד API
 const options = {
@@ -53,16 +55,8 @@ const specs = swaggerJsdoc(options);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
-
-
-// JSON-Server API מדומה
-server.use(middlewares);
-server.use(router);
-
 // הפעלת שרת Express
 app.listen(port, () => {
   logger.info('==== Server started =======');
   console.log(`Express server is running on port ${port}`);
 });
-
-logger.info('==== System stop =======');
