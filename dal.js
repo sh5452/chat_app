@@ -27,7 +27,7 @@ const connectedKnex = knex({
         user: config.db_cloud.user,
         password: config.db_cloud.password,
         database: config.db_cloud.database,
-        ssl: true
+        ssl: config.db_cloud.ssl || true
     }
 })
 
@@ -70,8 +70,10 @@ async function get_by_id(id) {
     return user
 }
 async function new_message(new_user_message) {
+    console.log("Inserting to DB:", new_user_message)
     console.log("new userName",new_user_message); // לבדוק מה באמת מתקבל
-    const result = await connectedKnex('CHAT').insert(new_user_message);
+    const result = await connectedKnex('CHAT').insert(new_user_message).returning('ID');
+    console.log("Result from DB:", result);
     return { ...new_user_message, ID: result[0] }
 }
 

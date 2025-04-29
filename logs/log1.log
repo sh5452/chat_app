@@ -760,3 +760,75 @@
   label: 'REST API App',
   timestamp: '2025-04-28T14:39:44.026Z'
 }
+{
+  message: 'Error during get_all {}',
+  level: 'error',
+  label: 'REST API App',
+  timestamp: '2025-04-28T15:30:15.108Z'
+}
+{
+  message: `Error during post {"length":166,"name":"error","severity":"ERROR","code":"22007","where":"unnamed portal parameter $3 = '...'","file":"datetime.c","line":"4026","routine":"DateTimeParseError"}`,
+  level: 'error',
+  label: 'REST API App',
+  timestamp: '2025-04-28T15:31:10.508Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T19:58:20.644Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T19:58:20.701Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:14:04.481Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:14:04.529Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:22:50.009Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:22:50.052Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:28:35.443Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:28:35.490Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:35:15.462Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-28T20:35:15.513Z'
+}

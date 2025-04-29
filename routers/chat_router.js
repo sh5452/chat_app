@@ -50,14 +50,13 @@ const logger=require('../logger/my_logger')
 
 router.get('/', async (request, response) => {
     try {
-        const users = await dal.get_all()
-        response.json(users)
+        const chats = await dal.get_all();
+        response.json(chats);
+    } catch (e) {
+        logger?.error?.(`Error during GET: ${JSON.stringify(e)}`);
+        response.status(500).json({ error: 'Server error' });
     }
-    catch (e) {
-        logger.error(`Error during get_all ${JSON.stringify(e)}`)
-        response.status(500).json( `error: ${JSON.stringify(e) }`)
-    }
-})
+});
 
 
 //GET BY ID
@@ -154,16 +153,25 @@ router.get('/:id', async (request, response) => {
 
 router.post('/', async (request, response) => {
     try {
-        const new_user_message = request.body
-        const result = await dal.new_message(new_user_message)
-        response.status(201).json(result)
-    }
-    catch (e) {
-        logger.error(`Error during post ${JSON.stringify(e)}`)
-        response.status(400).json({ 'Error': e })
-    }
-})
+        const { name, time, message } = request.body;
 
+        if (!name || !time || !message) {
+            return response.status(400).json({ error: 'Missing required fields' });
+        }
+
+        const newMessageForDb = {
+            NAME: name,
+            TIME: time,
+            MESSAGE: message
+        };
+
+        const result = await dal.new_message(newMessageForDb);
+        response.status(201).json(result);
+    } catch (e) {
+        logger?.error?.(`Error during POST: ${JSON.stringify(e)}`);
+        response.status(400).json({ error: e.message || 'Server error' });
+    }
+});
 // PUT
 router.put('/:id', async (request, response) => {
     try {

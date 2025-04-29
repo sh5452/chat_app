@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const jsonServer = require('json-server');
 const bodyParser = require('body-parser');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -12,9 +11,6 @@ const chat_routers = require('./routers/chat_router');
 logger.info('==== System start =======');
 
 const app = express();
-const router = jsonServer.router('db.json');
-const middlewares = jsonServer.defaults();
-
 const port = process.env.PORT || 3001;
 
 // CORS
@@ -27,11 +23,8 @@ app.use(cors({
 // תמיכה בבקשות JSON
 app.use(bodyParser.json());
 
-// חיבור לנתיב של הצ'אט (API אמיתי)
+// חיבור לנתיב של הצ'אט (API אמיתי בלבד)
 app.use('/api/chat', chat_routers);
-
-// חיבור JSON-Server מדומה תחת /api/db
-app.use('/api/db', middlewares, router);
 
 // Swagger - תיעוד API
 const options = {
@@ -52,7 +45,6 @@ const options = {
 };
 
 const specs = swaggerJsdoc(options);
-
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // הפעלת שרת Express
