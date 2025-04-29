@@ -832,3 +832,45 @@
   label: 'REST API App',
   timestamp: '2025-04-28T20:35:15.513Z'
 }
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:15:23.438Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:15:23.473Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:44:20.118Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:44:20.147Z'
+}
+{
+  message: `Error during POST: {"length":159,"name":"error","severity":"ERROR","code":"22008","where":"unnamed portal parameter $3 = '...'","file":"datetime.c","line":"3985","routine":"DateTimeParseError"}`,
+  level: 'error',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:44:35.770Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:46:45.403Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'REST API App',
+  timestamp: '2025-04-29T10:46:45.430Z'
+}
