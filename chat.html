@@ -196,12 +196,12 @@
             const message = document.getElementById("message-input").value.trim();
             if (message && userName) {
                 const newMessage = {
-                    name: userName,
-                    time: new Date().toISOString().slice(0,19).replace('T',''),
-                    message: message
-
-                };
+  name: userName,
+  time: new Date().toISOString().slice(0,19).replace('T',' '),
+  message: message
+}
                 console.log(newMessage);  // כדי לוודא שההודעה נשלחת כראוי
+                console.log(JSON.stringify(newMessage, null, 2));
 
                 fetch('https://chat-app-8qzs.onrender.com/api/chat/', {
                     method: 'POST',
