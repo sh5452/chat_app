@@ -239,17 +239,21 @@ router.patch('/:id', async (req, res) => {
  */
 router.delete('/:id', async (req, res) => {
     try {
-        const messageId = parseInt(req.params.id);
-        const deleted = await dal.delete_message(messageId);
+        const id = parseInt(req.params.id);
+        
+        const deleted = await dal.delete_message(id);
+        console.log('deleted:', deleted);
+        console.log('מנסה למחוק הודעה עם ID:', id);
 
-        if (deleted) {
-            res.status(200).json({ success: true });
-        } else {
-            res.status(404).json({ error: 'Message not found' });
+        if (!deleted) {
+            
+            return res.status(404).json({ error: 'הודעה לא נמצאה' });
         }
-    } catch (e) {
-        logger.error(`Error during DELETE: ${e.message}`);
-        res.status(400).json({ error: e.message });
+
+        res.status(200).json({ message: 'ההודעה נמחקה' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'שגיאה בשרת' });
     }
 });
 module.exports = router

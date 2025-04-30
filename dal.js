@@ -85,13 +85,17 @@ async function update_message(id, updatedMessage) {
     return result[0];
 }
 
-async function delete_user(id) {
-    // db.run('update company ....')
-    const result = await connectedKnex('CHAT').where('ID', id).del()
-    return result
+async function delete_message(id) {
+    // db.run('delete company ....')
+    console.log('מוחקת מה-DB ID:', id);
+const deleted = await connectedKnex('CHAT')
+    .where('ID', id)
+    .del()
+    .returning('*');
+console.log('נמחק מה-DB:', deleted);
 }
 
 module.exports = {
-    get_all, get_by_id, new_message, update_message, delete_user, 
+    get_all, get_by_id, new_message, update_message, delete_message, 
     delete_all, create_table_if_not_exist
 }
