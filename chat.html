@@ -197,7 +197,7 @@
             if (message && userName) {
                 const newMessage = {
   name: userName,
-  time: new Date().toISOString().slice(0,19).replace('T',' '),
+  time: new Date().toISOString().slice(0, 19).replace('T', ' '),
   message: message
 }
                 console.log(newMessage);  // כדי לוודא שההודעה נשלחת כראוי
@@ -212,8 +212,9 @@
                 })
                     .then(response => response.json())
                     .then(data => {
+                        console.log("Response from server:", data);
                         if (data && data.ID) {
-    addMessageToChat(userName, message, true, data.ID);
+    addMessageToChat(userName, message, true, data.ID.ID);
 }
                     })
                     .catch(error => {

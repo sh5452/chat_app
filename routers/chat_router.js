@@ -180,13 +180,13 @@ router.put('/:id', async (request, response) => {
         if (user) {
             // user exists ==> perform update
             const updated_user_req = request.body
-            const result = await dal.update_user(user_id, updated_user_req)
+            const result = await dal.update_message(user_id, updated_user_req)
             response.status(200).json(updated_user_req)
         }
         else {
             // user does NOT exist ==> perform insert
             const new_userName = request.body
-            const result = await dal.new_user(new_userName)
+            const result = await dal.update_message(new_userName)
             response.status(201).json(result)
         }
     }
@@ -196,24 +196,22 @@ router.put('/:id', async (request, response) => {
     }
 })
 // PATCH
-router.patch('/:id', async (request, response) => {
+router.patch('/:id', async (req, res) => {
     try {
-        const updated_user_req = request.body
-        const user_id = parseInt(request.params.id)
-        const user = await dal.get_by_id(user_id)
-        // override only existing fields in the user from the db
-        if (!user) {
-            response.status(404).json({ "error": `cannot find user with id ${user_id}` })
-            return
+        const messageId = parseInt(req.params.id);
+        const existing = await dal.get_by_id(messageId);
+
+        if (!existing) {
+            return res.status(404).json({ error: `Message with id ${messageId} not found` });
         }
-        const result = await dal.update_user(user_id, { ...user, ...updated_user_req })
-        response.status(200).json(result )
+
+        const updated = await dal.update_message(messageId, req.body);
+        res.status(200).json(updated);
+    } catch (e) {
+        logger.error(`Error during PATCH: ${e.message}`);
+        res.status(400).json({ error: e.message });
     }
-    catch (e) {
-        logger.error(`Error during patch ${JSON.stringify(e)}`)
-        response.status(400).json({ 'Error': e })
-    }
-})
+});
 
 // DELETE
 /**
@@ -239,16 +237,19 @@ router.patch('/:id', async (request, response) => {
  *             example:
  *               error: cannot find user and message with id {id}
  */
-router.delete('/:id', async (request, response) => {
+router.delete('/:id', async (req, res) => {
     try {
-        const user_id = parseInt(request.params.id)
-        const result = await dal.delete_user(user_id)
-        response.status(204).json( result )
-    }
-    catch (e) {
-        logger.error(`Error during delete ${JSON.stringify(e)}`)
-        response.status(400).json({ 'Error': e })
-    }
-})
+        const messageId = parseInt(req.params.id);
+        const deleted = await dal.delete_message(messageId);
 
+        if (deleted) {
+            res.status(200).json({ success: true });
+        } else {
+            res.status(404).json({ error: 'Message not found' });
+        }
+    } catch (e) {
+        logger.error(`Error during DELETE: ${e.message}`);
+        res.status(400).json({ error: e.message });
+    }
+});
 module.exports = router

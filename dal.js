@@ -77,10 +77,12 @@ async function new_message(new_user_message) {
     return { ...new_user_message, ID: result[0] }
 }
 
-async function update_user(id, updated_user) {
-    // db.run('update company ....')
-    const result = await connectedKnex('CHAT').where('ID', id).update(updated_user)
-    return updated_user
+async function update_message(id, updatedMessage) {
+    const result = await connectedKnex('CHAT')
+        .where('ID', id)
+        .update(updatedMessage)
+        .returning('*');
+    return result[0];
 }
 
 async function delete_user(id) {
@@ -90,6 +92,6 @@ async function delete_user(id) {
 }
 
 module.exports = {
-    get_all, get_by_id, new_message, update_user, delete_user, 
+    get_all, get_by_id, new_message, update_message, delete_user, 
     delete_all, create_table_if_not_exist
 }
