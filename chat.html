@@ -212,10 +212,9 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        if (data && data.id) {
-                            // הוספת ההודעה לצ'אט עם ה-ID שנוצר על ידי השרת
-                            addMessageToChat(userName, message, true, data.id);
-                        }
+                        if (data && data.ID) {
+    addMessageToChat(userName, message, true, data.ID);
+}
                     })
                     .catch(error => {
                         console.error('Error:', error);
@@ -230,10 +229,12 @@
 
         // פונקציה להוספת הודעה ל-DOM
         function addMessageToChat(sender, message, isMyMessage, messageId) {
-    const chatMessages = document.getElementById("chat-messages");
+            const chatMessages = document.getElementById("chat-messages");
+            console.log("chatMessages element:", chatMessages);
     const messageDiv = document.createElement("div");
     messageDiv.className = `message ${isMyMessage ? 'my-message' : 'other-message'}`;
     messageDiv.id = `message-${messageId}`; // הוספת ID ייחודי להודעה
+    console.log('Adding message to DOM')
 
    
 const now = new Date();
