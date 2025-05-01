@@ -6,13 +6,12 @@ async function deleteMessage(messageId) {
             method: 'DELETE'
         });
 
-        if (res.ok) {
-            // מחיקת ההודעה מה-DOM
+        if (res.ok || res.status === 404) {
             const messageDiv = document.getElementById(`message-${messageId}`);
             if (messageDiv) {
                 messageDiv.remove();
             }
-            Swal.fire('ההודעה נמחקה', 'ההודעה נמחקה בהצלחה', 'success');
+            Swal.fire('ההודעה נמחקה', 'ההודעה כבר לא קיימת', 'success');
         } else {
             throw new Error('שגיאה במחיקת ההודעה');
         }
