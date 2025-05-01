@@ -240,20 +240,18 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
-        
         const deleted = await dal.delete_message(id);
-        console.log('deleted:', deleted);
-        console.log('מנסה למחוק הודעה עם ID:', id);
 
         if (!deleted) {
-            
+            console.log('מנסה למחוק הודעה עם ID:', id);
             return res.status(404).json({ error: 'הודעה לא נמצאה' });
         }
 
-        res.status(200).json({ message: 'ההודעה נמחקה' });
+        res.status(200).json({ message: 'ההודעה נמחקה', deleted });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'שגיאה בשרת' });
     }
+
 });
 module.exports = router

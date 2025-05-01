@@ -86,13 +86,15 @@ async function update_message(id, updatedMessage) {
 }
 
 async function delete_message(id) {
-    // db.run('delete company ....')
     console.log('מוחקת מה-DB ID:', id);
-const deleted = await connectedKnex('CHAT')
-    .where('ID', id)
-    .del()
-    .returning('*');
-console.log('נמחק מה-DB:', deleted);
+
+    const existing = await connectedKnex('CHAT').where('ID', id).first();
+    if (!existing) return null;  // אם לא קיימת – אין מה למחוק
+
+    await connectedKnex('CHAT').where('ID', id).del(); // מחיקה בפועל
+    console.log('נמחק מה-DB:', existing);
+
+    return existing; // מחזירה את ההודעה שנמחקה
 }
 
 module.exports = {
