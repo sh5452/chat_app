@@ -80,7 +80,10 @@ async function new_message(new_user_message) {
     console.log("Result from DB:", result);
     console.log("Returning ID:", id);
 
-    return { ...new_user_message, ID: id };
+    return {
+        ...new_user_message,
+        ID: result[0].ID 
+    };
 }
 
 async function update_message(id, updatedMessage) {
