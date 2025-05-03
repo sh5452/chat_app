@@ -166,7 +166,11 @@ router.post('/', async (request, response) => {
         };
 
         const result = await dal.new_message(newMessageForDb);
-        response.status(201).json(result);
+        console.log("💾 Sending to client:", result);
+        response.status(201).json({
+            ...newMessageForDb,
+            ID: result.ID
+        });
     } catch (e) {
         logger?.error?.(`Error during POST: ${JSON.stringify(e)}`);
         response.status(400).json({ error: e.message || 'Server error' });

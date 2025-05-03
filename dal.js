@@ -70,11 +70,17 @@ async function get_by_id(id) {
     return user
 }
 async function new_message(new_user_message) {
-    console.log("Inserting to DB:", new_user_message)
-    console.log("new userName",new_user_message); // לבדוק מה באמת מתקבל
-    const result = await connectedKnex('CHAT').insert(new_user_message).returning('ID');
+    console.log("Inserting to DB:", new_user_message);
+    const result = await connectedKnex('CHAT')
+        .insert(new_user_message)
+        .returning('ID');
+
+    const id = result?.[0]?.ID ?? null; // הגנה מפני מקרים לא צפויים
+
     console.log("Result from DB:", result);
-    return { ...new_user_message, ID: result[0] }
+    console.log("Returning ID:", id);
+
+    return { ...new_user_message, ID: id };
 }
 
 async function update_message(id, updatedMessage) {

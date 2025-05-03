@@ -214,8 +214,10 @@
                     .then(response => response.json())
                     .then(data => {
                         console.log("Response from server:", data);
+                        console.log("📦 typeof data.ID:", typeof data.ID);
+console.log("📦 data.ID:", data.ID);
                         if (data && data.ID) {
-    addMessageToChat(userName, message, true, data.ID.ID);
+    addMessageToChat(userName, message, true, data.ID);
 }
                     })
                     .catch(error => {
