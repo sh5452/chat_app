@@ -11,6 +11,7 @@ const chat_routers = require('./routers/chat_router');
 logger.info('==== System start =======');
 
 const app = express();
+app.use(express.static('public'));
 const port = process.env.PORT || 3001;
 
 // CORS
@@ -46,6 +47,7 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 
 // הפעלת שרת Express
 app.listen(port, () => {
