@@ -249,8 +249,7 @@ const time = now.toISOString().slice(0, 19).replace('T', ' ');
     messageDiv.style.backgroundColor = backgroundColor;
 
     let buttonsHtml = '';
-    // let buttonPlusValue = 0;
-    // let buttonMinusValue = 0;
+   
 
     if (isMyMessage) {
         buttonsHtml = `
@@ -284,29 +283,14 @@ console.log("typeof:", typeof messageId);
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    // הוספת מאזיני אירועים לכפתורי ה+ וה-
-    // if (isMyMessage) {
-    //     const plusButton = document.getElementById(`plus-${messageId}`);
-    //     const minusButton = document.getElementById(`minus-${messageId}`);
-    //     const plusCountSpan = document.getElementById(`plus-count-${messageId}`);
-    //     const minusCountSpan = document.getElementById(`minus-count-${messageId}`);
 
-        // plusButton.addEventListener('click', () => {
-        //     buttonPlusValue++;
-        //     plusCountSpan.textContent = buttonPlusValue;
-        // });
-
-    //     minusButton.addEventListener('click', () => {
-    //         buttonMinusValue++;
-    //         minusCountSpan.textContent = buttonMinusValue;
-    //     });
-    // }
  }
 
 // סימולציה של הודעות מאחרים (לצורך הדגמה)
 setTimeout(() => addMessageToChat("משה", "היי, מה שלומך?", false, 1), 1000);
 setTimeout(() => addMessageToChat("שרה", "שלום לכולם!", false, 2), 2000);
 </script>
+<script src="chat.js"></script>
 </body>
 
 </html>
