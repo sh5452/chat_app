@@ -1,15 +1,19 @@
-let lastMessageId=0;
-
-function  fetchMessages(){
-fetch('https://chat-app-8qzs.onrender.com/api/chat/')
-.then(response => response.json())
-.then(data=>{
-data.forEach(message=>{
-    if(message.id>lastMessageId){
-        addMessageToChat(message.Name,message.Message,false,message.ID)
-        lastMessageId=message.id
-    }
-})
-})
+function fetchMessages() {
+    fetch('https://chat-app-8qzs.onrender.com/api/chat') 
+        .then(response => response.json())
+        .then(messages => {
+            const chatMessages = document.getElementById("chat-messages");
+            chatMessages.innerHTML = ''; // ננקה קודם את ההודעות
+            messages.forEach(msg => {
+                const isMyMessage = msg.name === userName;
+                addMessageToChat(msg.name, msg.message, isMyMessage, msg.ID);
+            });
+        })
+        .catch(error => console.error('שגיאה בקבלת ההודעות:', error));
 }
-setInterval(fetchMessages,3000)
+
+
+setInterval(fetchMessages, 3000);
+
+
+fetchMessages();

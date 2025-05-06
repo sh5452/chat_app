@@ -6,6 +6,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const logger = require('./logger/my_logger');
 const chat_routers = require('./routers/chat_router');
+const {get_all} = require('./dal')
 
 // התחלה
 logger.info('==== System start =======');
@@ -26,6 +27,8 @@ app.use(bodyParser.json());
 
 // חיבור לנתיב של הצ'אט (API אמיתי בלבד)
 app.use('/api/chat', chat_routers);
+
+
 
 // Swagger - תיעוד API
 const options = {
