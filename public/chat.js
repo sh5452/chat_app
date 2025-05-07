@@ -2,6 +2,7 @@ function fetchMessages() {
     fetch('https://chat-app-8qzs.onrender.com/api/chat') 
         .then(response => response.json())
         .then(messages => {
+            console.log("📦 הודעות מהשרת:", messages); // בדיקה
             const chatMessages = document.getElementById("chat-messages");
             chatMessages.innerHTML = ''; // ננקה קודם את ההודעות
             messages.forEach(msg => {
