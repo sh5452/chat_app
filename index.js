@@ -6,12 +6,14 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const logger = require('./logger/my_logger');
 const chat_routers = require('./routers/chat_router');
-const {get_all} = require('./dal')
+const { get_all } = require('./dal'); // הוסיפי גם את saveMessage אם יש
 
 // התחלה
 logger.info('==== System start =======');
 
 const app = express();
+// חיבור לנתיב של הצ'אט (API אמיתי בלבד)
+app.use('/api/chat', chat_routers);
 app.use(express.static('public'));
 const port = process.env.PORT || 3001;
 
@@ -25,8 +27,6 @@ app.use(cors({
 // תמיכה בבקשות JSON
 app.use(bodyParser.json());
 
-// חיבור לנתיב של הצ'אט (API אמיתי בלבד)
-app.use('/api/chat', chat_routers);
 
 
 
@@ -50,6 +50,14 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    res.status(404).json({ error: 'API route not found' });
+  } else {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  }
+});
 
 
 // הפעלת שרת Express

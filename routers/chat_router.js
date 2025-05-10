@@ -204,7 +204,7 @@ router.patch('/:id', async (req, res) => {
     try {
         const messageId = parseInt(req.params.id);
         const existing = await dal.get_by_id(messageId);
-
+        
         if (!existing) {
             return res.status(404).json({ error: `Message with id ${messageId} not found` });
         }
