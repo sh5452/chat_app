@@ -11,7 +11,7 @@ function fetchMessages() {
     console.log("🧾 הודעה:", msg); // הדפיסי כל הודעה שמגיעה
     console.log("🔍 msg.ID:", msg.ID);
     const isMyMessage = msg.name === userName;
-    addMessageToChat(msg.name, msg.message, isMyMessage, msg.id);
+    addMessageToChat(msg.name, msg.message, isMyMessage, msg.ID);
 });
         })
         .catch(error => console.error('שגיאה בקבלת ההודעות:', error));

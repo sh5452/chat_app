@@ -6,23 +6,30 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const logger = require('./logger/my_logger');
 const chat_routers = require('./routers/chat_router');
-const { get_all } = require('./dal'); // הוסיפי גם את saveMessage אם יש
+const { get_all } = require('./dal'); 
 
 // התחלה
 logger.info('==== System start =======');
 
 const app = express();
-// חיבור לנתיב של הצ'אט (API אמיתי בלבד)
-app.use('/api/chat', chat_routers);
-app.use(express.static('public'));
-const port = process.env.PORT || 3001;
-
 // CORS
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+// חיבור לנתיב של הצ'אט (API אמיתי בלבד)
+app.use('/api/chat', chat_routers);
+app.use(express.static('public'));
+const port = process.env.PORT || 3001;
+
+
 
 // תמיכה בבקשות JSON
 app.use(bodyParser.json());
