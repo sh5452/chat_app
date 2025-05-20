@@ -204,6 +204,7 @@ router.put('/:id', async (request, response) => {
 router.patch('/:id', async (req, res) => {
     try {
         const messageId = parseInt(req.params.id);
+        console.log("📩 PATCH route hit, ID:", messageId);
         const existing = await dal.get_by_id(messageId);
 
         if (!existing) {

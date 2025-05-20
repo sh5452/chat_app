@@ -1,4 +1,6 @@
 async function editMessage(messageDiv, sender, messageId) {
+    const url = `https://chat-app-8qzs.onrender.com/api/chat/${messageId}`;
+console.log("📡 Sending PATCH to:", url);
     if (userName !== sender) {
         Swal.fire('שגיאה', 'אתה יכול לערוך רק את ההודעות שלך', 'error');
         return;
@@ -21,7 +23,7 @@ async function editMessage(messageDiv, sender, messageId) {
         try {
             console.log("Editing message ID:", messageId);
             console.log("📡 Sending PATCH to:", `https://chat-app-8qzs.onrender.com/api/chat/${messageId}`);
-            const res = await fetch(`https://chat-app-8qzs.onrender.com/api/chat/${messageId}`, {
+            const res = await fetch(url, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     NAME: userName,
@@ -39,7 +41,7 @@ async function editMessage(messageDiv, sender, messageId) {
                 messageContent.textContent = newText;
                 Swal.fire('ההודעה עודכנה בהצלחה', 'ההודעה שלך עודכנה', 'success');
             } else {
-                throw new Error(responseData.error || 'שגיאה בעדכון ההודעה' ,`Invalid JSON from server: ${errorText}`);
+                throw new Error(responseData.error || 'שגיאה בעדכון ההודעה' );
             }
         } catch (error) {
             console.error('Error:', error);
