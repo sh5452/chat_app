@@ -152,9 +152,10 @@ router.get('/:id', async (request, response) => {
  */
 
 router.post('/', async (request, response) => {
+   
     try {
         const { name, time, message } = request.body;
-
+ console.log("📥 request.body:", request.body);
         if (!name || !time || !message) {
             return response.status(400).json({ error: 'Missing required fields' });
         }
@@ -204,7 +205,7 @@ router.patch('/:id', async (req, res) => {
     try {
         const messageId = parseInt(req.params.id);
         const existing = await dal.get_by_id(messageId);
-        
+
         if (!existing) {
             return res.status(404).json({ error: `Message with id ${messageId} not found` });
         }

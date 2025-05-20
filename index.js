@@ -24,6 +24,9 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+// תמיכה בבקשות JSON
+app.use(bodyParser.json());
+
 // חיבור לנתיב של הצ'אט (API אמיתי בלבד)
 app.use('/api/chat', chat_routers);
 app.use(express.static('public'));
@@ -31,8 +34,6 @@ const port = process.env.PORT || 3001;
 
 
 
-// תמיכה בבקשות JSON
-app.use(bodyParser.json());
 
 
 
