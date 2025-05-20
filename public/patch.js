@@ -20,6 +20,7 @@ async function editMessage(messageDiv, sender, messageId) {
         const newText = result.value;
         try {
             console.log("Editing message ID:", messageId);
+            console.log("📡 Sending PATCH to:", `https://chat-app-8qzs.onrender.com/api/chat/${messageId}`);
             const res = await fetch(`https://chat-app-8qzs.onrender.com/api/chat/${messageId}`, {
                 method: 'PATCH',
                 body: JSON.stringify({
@@ -38,7 +39,7 @@ async function editMessage(messageDiv, sender, messageId) {
                 messageContent.textContent = newText;
                 Swal.fire('ההודעה עודכנה בהצלחה', 'ההודעה שלך עודכנה', 'success');
             } else {
-                throw new Error(responseData.error || 'שגיאה בעדכון ההודעה');
+                throw new Error(responseData.error || 'שגיאה בעדכון ההודעה' ,`Invalid JSON from server: ${errorText}`);
             }
         } catch (error) {
             console.error('Error:', error);
