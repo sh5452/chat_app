@@ -6,16 +6,16 @@
       "database": "chat_cloud"
     },
     "db_cloud": {
-      "host": "dpg-d04bu1s9c44c739g0eug-a.oregon-postgres.render.com",
-      "user": "chat_postgersql_9ppo_user",
-      "password": "EFiMq8ha8inRMRUBXXdL784Rxp7U28TE",
-      "database": "chat_postgersql_9ppo",
+      "host": "dpg-d103hcali9vc73deme60-a.oregon-postgres.render.com",
+      "user": "chat_postgersql_not8_user",
+      "password": "vvTlpfhotkcxXTy5EMhBfdqzoW0TFZC0",
+      "database": "chat_postgersql_not8",
       "ssl": true
     },
     "db_cloud_local": {
-      "host": "dpg-d04bu1s9c44c739g0eug-a",
+      "host": "dpg-d103hcali9vc73deme60-a",
       "user": "chat_postgersql_user",
-      "password": "EFiMq8ha8inRMRUBXXdL784Rxp7U28TE",
-      "database": "chat_postgersql_9ppo"
+      "password": "vvTlpfhotkcxXTy5EMhBfdqzoW0TFZC0",
+      "database": "chat_postgersql_not8"
     }
   }
