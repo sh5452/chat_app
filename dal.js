@@ -28,7 +28,11 @@ const connectedKnex = knex({
         password: config.db_cloud.password,
         database: config.db_cloud.database,
         ssl: config.db_cloud.ssl || true
-    }
+    },
+    pool: {
+        min: 2,
+        max: 5  // זה חשוב! אפילו 2-5 מספיקים לאפליקציה קטנה
+      }
 })
 
 async function create_table_if_not_exist() {
