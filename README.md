@@ -10,4 +10,4 @@ Backend: Node.js (Express)
 
 Database: PostgreSQL
 
- https://chat-app-8qzs.onrender.com/chat.html
+https://chat-app-8qzs.onrender.com/chat.html
